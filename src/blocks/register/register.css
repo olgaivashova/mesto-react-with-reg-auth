@@ -1,0 +1,10 @@
+.register {
+  border: 1px solid red;
+  max-width: 880px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  margin-top: 60px;
+}

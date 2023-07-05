@@ -9,6 +9,9 @@ import api from "../utils/api";
 import EditProfilePopup from "./editProfilePopup/EditProfilePopup";
 import AddPlacePopup from "./addPlacePopup/AddPlacePopup";
 import EditAvatarPopup from "./editAvatarPopup/EditAvatarPopup";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Register from "./register/Register";
+import Login from "./login/Login";
 
 
 function App() {
@@ -21,6 +24,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [card, setCard] = useState([]);
   const [deletedCardId, setDeletedCardId] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   function handleEditAvatarClick() {
     setIsAvatarPopupOpen(!isAvatarPopupOpen);
@@ -103,9 +107,17 @@ function App() {
   return (
     <div className="App" style={{backgroundColor: '#000'}}>
       <div className="page__content">
+        
         <Header />
         <CurrentUserContext.Provider value={currentUser}>
-          <Main
+          <Register />
+          <Login />
+          <Routes>
+          <Route path="/register" element={<Register />} />
+        
+          </Routes> 
+          
+           <Main
             onEditProfile={handleEditProfileClick}
             onAddPopup={handleAddPlaceClick}
             onAvatar={handleEditAvatarClick}
@@ -148,6 +160,7 @@ function App() {
             onClose={closeAllPopups}
           />
         </CurrentUserContext.Provider>
+        
       </div>
     </div>
   );
