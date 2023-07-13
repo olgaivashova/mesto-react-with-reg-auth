@@ -1,13 +1,18 @@
 import Card from "../Card/Card";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import Register from "../register/Register";
+import Login from "../login/Login";
 
 
-function Main({ onEditProfile, onAddPopup, onAvatar, onCard, card, onDelete }) {
+function Main({ name, onEditProfile, onAddPopup, onAvatar, onCard, card, onDelete, handleSignup, handleSignin }) {
   const currentUser = useContext(CurrentUserContext)
 
     return (
+      
     <main className="main">
+     {name === "main" ? 
+     <>
       <section className="profile">
         <button
           type="button"
@@ -47,6 +52,13 @@ function Main({ onEditProfile, onAddPopup, onAvatar, onCard, card, onDelete }) {
         
         </ul>
       </section>
+      </>
+      :
+      name === "register" ?
+      <Register name={name} handleSignup={handleSignup}/>
+      :
+      <Login name={name} handleSignin={handleSignin} />
+        }
     </main>
   );
 }

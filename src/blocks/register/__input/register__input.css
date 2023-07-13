@@ -6,12 +6,14 @@
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
+  color: white;
   display: inline-block;
   width: 358px;
   height: 27px;
   border: none;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  /*background-color: transparent;*/
+  border-bottom: 2px solid rgba(84, 84, 84, 0.7);
+  background-color: transparent;
+  margin-bottom: 30px;
 }
 
 .register__input:focus {
@@ -19,9 +21,9 @@
   border: 1px solid blue;
 }
 
-@media screen and (max-width: 1275px) {
-  .popup__input {
-    width: 238px;
+@media screen and (max-width: 768px) {
+  .register__input {
+    width: 260px;
     height: 28px;
   }
 }
